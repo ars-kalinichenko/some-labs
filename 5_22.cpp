@@ -2,17 +2,14 @@
 #include <string>
 #include <windows.h>
 
-
 using namespace std;
 
-
-void func(string s1, string s2) {
-    for (int i = 0; i < s2.size(); i++)
-    {
-        while (s1.find(s2[i]) != -1)
-            s1.erase(s1.find(s2[i]), 1);
+void remove_in_string(string s1, const string &s2) {
+    for (char i : s2) {
+        while (s1.find(i) != -1)
+            s1.erase(s1.find(i), 1);
     }
-    cout << "Итоговая строка:" << s1 << endl;
+    cout << "Итоговая строка: " << s1 << endl;
 
 }
 
@@ -25,6 +22,6 @@ int main() {
     getline(cin, s1);
     cout << "Строка 2 = ";
     getline(cin, s2);
-    func(s1, s2);
+    remove_in_string(s1, s2);
     return 0;
 }
